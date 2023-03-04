@@ -1,0 +1,14 @@
+﻿global using MediatR;
+global using MediatrTest.Domain.Repositories;
+global using MediatrTest.Common.Base;
+global using MediatrTest.Common.Interfaces;
+global using MediatrTest.Domain.Model;
+global using MediatrTest.Infrastructure.Base;
+global using MediatrTest.Infrastructure.DataBase;
+global using MediatrTest.Infrastructure.Interfaces;
+global using MediatrTest.Infrastructure.Repositories;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
