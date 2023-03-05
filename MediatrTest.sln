@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrTest", "MediatrTest\MediatrTest.csproj", "{B724A22C-938A-4F08-B252-DBF693CB658E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrTest.Api", "MediatrTest\MediatrTest.Api.csproj", "{B724A22C-938A-4F08-B252-DBF693CB658E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrTest.Domain", "MediatrTest.Domain\MediatrTest.Domain.csproj", "{31CA16CE-677E-40EC-9BD5-AEC23C55882E}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrTest.Common", "Media
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrTest.Infrastructure", "MediatrTest.Infrastructure\MediatrTest.Infrastructure.csproj", "{DC8B3F95-EC72-4FDC-969D-2CF853449AD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrTest.Application", "MediatrTest.Application\MediatrTest.Application.csproj", "{318AE34E-B89F-4D89-8639-71710C2CE4F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrTest.Application", "MediatrTest.Application\MediatrTest.Application.csproj", "{318AE34E-B89F-4D89-8639-71710C2CE4F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
