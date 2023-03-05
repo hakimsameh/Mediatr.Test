@@ -10,7 +10,7 @@ internal class ItemAddedEventHandler : INotificationHandler<ItemSubmittedEvent>
     }
     public async Task Handle(ItemSubmittedEvent notification, CancellationToken cancellationToken)
     {
-        var logTypeString = notification.EditMode == Domain.Enums.EditMode.Add ?
+        var logTypeString = notification.EditMode == EditMode.Add ?
             "Item Added" : "Item Updated";
         var log = $"{logTypeString} ID: {notification.Item.Id} - Item Name {notification.Item.Name}";
         var logData = DataLog.Create(DateTime.Now, log, notification.EditMode.ToString());

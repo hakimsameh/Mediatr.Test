@@ -19,7 +19,7 @@ internal class UpdateItemHandler : IRequestHandler<UpdateItemCommand>
             item.UpdateData(request.ItemName, request.ItemDescription);
             await repository.AddOrUpdate(item);
             item.Submit(EditMode.Update);
-            var result = await _unitOfWork.CommitAsync(cancellationToken);
+            _ = await _unitOfWork.CommitAsync(cancellationToken);
         }
     }
 }

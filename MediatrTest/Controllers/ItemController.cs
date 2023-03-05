@@ -1,4 +1,6 @@
-﻿namespace MediatrTest.Controllers;
+﻿using MediatrTest.Application.CQRS.Commands.ItemCommands.DeleteItem;
+
+namespace MediatrTest.Controllers;
 
 [Produces("application/json")]
 [Route("api/[controller]")]
@@ -34,5 +36,12 @@ public class ItemController : ControllerBase
         var request = new UpdateItemCommand(item.Id, item.ItemName, item.ItemDescription);
         await Sender.Send(request);
         return Ok(request);
+    }
+    [HttpDelete("{itmId}")]
+    public async Task<ActionResult> Delete(Guid itemId)
+    {
+        var request = new DeleteItemCommand(itemId);
+        var result = await Sender.Send(request);
+        return result?  Ok() : NotFound();
     }
 }

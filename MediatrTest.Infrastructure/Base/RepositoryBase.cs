@@ -11,7 +11,7 @@ public abstract class RepositoryBase<T, TKey>
     }
     public async Task AddOrUpdate(T entity)
     {
-        var existing = await DataSet.AsNoTracking().FirstOrDefaultAsync(
+        var existing = await DataSet.FirstOrDefaultAsync(
             x => x.Id.Equals(entity.Id));
         if (existing != null)
         {
@@ -26,19 +26,19 @@ public abstract class RepositoryBase<T, TKey>
 
     public async Task Delete(TKey id)
     {
-        var entity = await DataSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
+        var entity = await DataSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
         if (entity != null)
             DataSet.Remove(entity);
     }
 
     public async Task<T> Get(TKey id)
     {
-        var entity = await DataSet.AsNoTracking()
+        var entity = await DataSet
             .FirstOrDefaultAsync(x => x.Id.Equals(id));
         return entity ?? default;
     }
 
     public async Task<IEnumerable<T>> GetAll()
-        => await DataSet.AsNoTracking().ToListAsync();
+        => await DataSet.ToListAsync();
     
 }

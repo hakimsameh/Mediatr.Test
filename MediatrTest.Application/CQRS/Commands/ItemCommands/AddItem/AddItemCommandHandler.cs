@@ -14,7 +14,6 @@ internal class AddItemCommandHandler : IRequestHandler<AddItemCommand>
     public async Task Handle(AddItemCommand request, CancellationToken cancellationToken)
     {
         var item = ItemModel.Create(request.ItemName, request.ItemDescription);
-
         await repository.AddOrUpdate(item);
         item.Submit(EditMode.Add);
         _ = await unitOfWork.CommitAsync(cancellationToken);

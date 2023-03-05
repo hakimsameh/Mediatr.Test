@@ -35,7 +35,6 @@ internal class UnitOfWork : IUnitOfWork , IDisposable
 
     public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
     {
-        var errorMessage = string.Empty;
         bool successfulCommitted = false;
         foreach (var db in Contexts)
         {
@@ -50,7 +49,7 @@ internal class UnitOfWork : IUnitOfWork , IDisposable
             }
             catch (Exception e)
             {
-                errorMessage = e.Message;
+                string errorMessage = e.Message;
                 await transaction.RollbackAsync(cancellationToken);
                 successfulCommitted = false;
             }
@@ -83,7 +82,7 @@ internal class UnitOfWork : IUnitOfWork , IDisposable
     {
         if (disposing)
         {
-            if (Contexts != null && Contexts.Count() > 0)
+            if (Contexts != null && Contexts.Count > 0)
             {
                 Contexts.Clear();
             }

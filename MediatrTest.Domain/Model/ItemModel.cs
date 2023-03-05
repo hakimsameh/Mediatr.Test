@@ -14,5 +14,9 @@ public class ItemModel : AggregateRoot<Guid>
     }
     public void Submit(EditMode editMode)
         => RaiseDomainEvent(new ItemSubmittedEvent(this, editMode));
-
+    public void Deleted()
+    {
+        RaiseDomainEvent(new ItemDeletedEvent(this));
+        this.Description = "DDDDDDD";
+    }
 }
