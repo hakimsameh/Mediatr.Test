@@ -1,8 +1,4 @@
-﻿
-
-namespace MediatrTest.Application.CQRS.Commands;
-
-public record AddItemCommand(string ItemName, string ItemDescription) : IRequest;
+﻿namespace MediatrTest.Application.CQRS.Commands.ItemCommands.AddItem;
 
 internal class AddItemCommandHandler : IRequestHandler<AddItemCommand>
 {

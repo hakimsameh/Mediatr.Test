@@ -1,10 +1,10 @@
 ﻿namespace MediatrTest.Application.CQRS.Notification;
 
-internal class ItemAddedHandler : INotificationHandler<ItemSubmittedEvent>
+internal class ItemAddedEventHandler : INotificationHandler<ItemSubmittedEvent>
 {
     private readonly ISender sender;
 
-    public ItemAddedHandler(ISender sender)
+    public ItemAddedEventHandler(ISender sender)
     {
         this.sender = sender;
     }

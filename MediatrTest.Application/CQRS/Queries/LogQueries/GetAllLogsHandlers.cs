@@ -1,6 +1,4 @@
-﻿namespace MediatrTest.Application.CQRS.Queries;
-
-public record GetAllLogs : IRequest<IEnumerable<DataLog>>;
+﻿namespace MediatrTest.Application.CQRS.Queries.LogQueries;
 
 internal class GetAllLogsHandlers : IRequestHandler<GetAllLogs, IEnumerable<DataLog>>
 {
@@ -13,7 +11,7 @@ internal class GetAllLogsHandlers : IRequestHandler<GetAllLogs, IEnumerable<Data
     public async Task<IEnumerable<DataLog>> Handle(GetAllLogs request, CancellationToken cancellationToken)
     {
         var data = await logData.GetAll();
-        return data.OrderBy(x=>x.LogDate);
+        return data.OrderBy(x => x.LogDate);
     }
 }
 

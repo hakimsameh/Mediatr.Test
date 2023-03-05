@@ -1,5 +1,4 @@
-global using MediatrTest.Application;
-global using MediatrTest.Infrastructure;
+
 
 namespace MediatrTest
 {

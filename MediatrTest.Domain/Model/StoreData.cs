@@ -1,5 +1,4 @@
-﻿
-namespace MediatrTest.Domain.Model;
+﻿namespace MediatrTest.Domain.Model;
 
 public class StoreData : EntityBase<Guid>
 {

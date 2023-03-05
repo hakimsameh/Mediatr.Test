@@ -13,7 +13,6 @@ public class ItemModel : AggregateRoot<Guid>
         Description = description;
     }
     public void Submit(EditMode editMode)
-    {
-        RaiseDomainEvent(new ItemSubmittedEvent(this, editMode));
-    }
+        => RaiseDomainEvent(new ItemSubmittedEvent(this, editMode));
+
 }

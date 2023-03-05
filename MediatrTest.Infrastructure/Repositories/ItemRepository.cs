@@ -1,6 +1,4 @@
-﻿using MediatrTest.Domain.Repositories;
-
-namespace MediatrTest.Infrastructure.Repositories;
+﻿namespace MediatrTest.Infrastructure.Repositories;
 
 internal class ItemRepository : RepositoryBase<ItemModel, Guid>, IItemModelRepository
 {

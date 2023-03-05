@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace MediatrTest.Infrastructure;
+﻿namespace MediatrTest.Infrastructure;
 
 public static class DependencyInjection
 {
@@ -21,7 +19,7 @@ public static class DependencyInjection
 
     public static void ApplyDatabaseMigrations(this IApplicationBuilder app)
     {
-        using var serviceScope =
+        using IServiceScope serviceScope =
             app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                 .CreateScope();
         {

@@ -1,17 +1,15 @@
-﻿namespace MediatrTest.Application.CQRS.Commands;
+﻿namespace MediatrTest.Application.CQRS.Commands.ItemCommands.UpdateItem;
 
-public record UpdateItemCommand(Guid Id, string ItemName, string ItemDescription) : IRequest;
-
-internal class UpdateItemCommandHandler : IRequestHandler<UpdateItemCommand>
+internal class UpdateItemHandler : IRequestHandler<UpdateItemCommand>
 {
     private readonly IItemModelRepository repository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public UpdateItemCommandHandler(IItemModelRepository repository, IUnitOfWork unitOfWork)
+    public UpdateItemHandler(IItemModelRepository repository, IUnitOfWork unitOfWork)
     {
         this.repository = repository;
-        this._unitOfWork = unitOfWork;
-        this._unitOfWork.AddRepository(repository);
+        _unitOfWork = unitOfWork;
+        _unitOfWork.AddRepository(repository);
     }
     public async Task Handle(UpdateItemCommand request, CancellationToken cancellationToken)
     {

@@ -1,6 +1,7 @@
 ﻿namespace MediatrTest.Infrastructure.Base;
-public abstract class RepositoryBase<T, TKey> : IRepository<T, TKey>, IEFRepository
-where T : EntityBase<TKey>
+public abstract class RepositoryBase<T, TKey> 
+    : IRepository<T, TKey>, IEFRepository 
+    where T : EntityBase<TKey>
 {
     public DbContext Context { get; }
     protected DbSet<T> DataSet => Context.Set<T>();
@@ -10,7 +11,8 @@ where T : EntityBase<TKey>
     }
     public async Task AddOrUpdate(T entity)
     {
-        var existing = await DataSet.FirstOrDefaultAsync(x => x.Id.Equals(entity.Id));
+        var existing = await DataSet.AsNoTracking().FirstOrDefaultAsync(
+            x => x.Id.Equals(entity.Id));
         if (existing != null)
         {
             Context.Entry(existing).CurrentValues.SetValues(entity);
@@ -24,19 +26,19 @@ where T : EntityBase<TKey>
 
     public async Task Delete(TKey id)
     {
-        var entity = await DataSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
+        var entity = await DataSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
         if (entity != null)
             DataSet.Remove(entity);
     }
 
     public async Task<T> Get(TKey id)
     {
-        var entity = await DataSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
+        var entity = await DataSet.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id.Equals(id));
         return entity ?? default;
     }
 
     public async Task<IEnumerable<T>> GetAll()
-    {
-        return await DataSet.ToListAsync();
-    }    
+        => await DataSet.AsNoTracking().ToListAsync();
+    
 }

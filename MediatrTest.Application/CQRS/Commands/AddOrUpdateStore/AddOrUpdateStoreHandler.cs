@@ -1,15 +1,12 @@
-﻿namespace MediatrTest.Application.CQRS.Commands;
+﻿namespace MediatrTest.Application.CQRS.Commands.AddOrUpdateStore;
 
-internal record AddOrUpdateStoreCommand(ItemModel ItemModel) : IRequest;
-
-internal class AddStoreCommandHandler : IRequestHandler<AddOrUpdateStoreCommand>
+internal class AddOrUpdateStoreHandler : IRequestHandler<AddOrUpdateStoreCommand>
 {
     private readonly IStoreDataRepository repository;
 
-    public AddStoreCommandHandler(IStoreDataRepository repository)
-    {
-        this.repository = repository;
-    }
+    public AddOrUpdateStoreHandler(IStoreDataRepository repository)
+        => this.repository = repository;
+
     public async Task Handle(AddOrUpdateStoreCommand request, CancellationToken cancellationToken)
     {
         StoreData data;

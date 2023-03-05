@@ -1,17 +1,14 @@
-﻿namespace MediatrTest.Application.CQRS.Commands;
+﻿using MediatrTest.Application.CQRS.Commands.AddLog;
 
-internal record AddLogCommand(DataLog Data) : IRequest;
+namespace MediatrTest.Application.CQRS.Commands.AddOrUpdateLog;
 
 internal class AddLogCommandHandler : IRequestHandler<AddLogCommand>
 {
     private readonly IDataLogRepository repository;
 
     public AddLogCommandHandler(IDataLogRepository repository)
-    {
-        this.repository = repository;
-    }
+        => this.repository = repository;
+
     public async Task Handle(AddLogCommand request, CancellationToken cancellationToken)
-    {
-        await repository.AddOrUpdate(request.Data);
-    }
+        => await repository.AddOrUpdate(request.Data);
 }

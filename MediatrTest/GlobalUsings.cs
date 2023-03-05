@@ -1,0 +1,11 @@
+﻿global using MediatR;
+global using MediatrTest.Application;
+global using MediatrTest.Application.CQRS.Commands.ItemCommands.AddItem;
+global using MediatrTest.Application.CQRS.Commands.ItemCommands.UpdateItem;
+global using MediatrTest.Application.CQRS.Queries.ItemQueries;
+global using MediatrTest.Application.CQRS.Queries.LogQueries;
+global using MediatrTest.Application.CQRS.Queries.StoreQueries;
+global using MediatrTest.Domain.Model;
+global using MediatrTest.Infrastructure;
+global using MediatrTest.RequestModel;
+global using Microsoft.AspNetCore.Mvc;

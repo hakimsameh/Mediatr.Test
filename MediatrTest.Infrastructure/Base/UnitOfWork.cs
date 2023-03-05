@@ -1,6 +1,4 @@
-﻿
-namespace MediatrTest.Infrastructure.Base;
-
+﻿namespace MediatrTest.Infrastructure.Base;
 internal class UnitOfWork : IUnitOfWork , IDisposable
 {
     private readonly Dictionary<string, object> _repositories = new();
